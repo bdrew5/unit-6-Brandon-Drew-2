@@ -111,6 +111,11 @@ public class MusicLibrary {
         int high = library.length - 1;
         int middle = (low + high) /2;
         if(type.compareTo("artist") == 0){
+            while (library[middle] == null) {
+                high--;
+                middle--;
+            }
+
             while(library[middle].getArtist() != target && low <= high){
                 if (target.compareTo(library[middle].getArtist()) < 0)
                     high = middle - 1;
@@ -125,6 +130,10 @@ public class MusicLibrary {
                 return -1;
         }
         else{
+            while (library[middle] == null) {
+                high--;
+                middle--;
+            }
         while(library[middle].getName() != target && low <= high){
             if (target.compareTo(library[middle].getName()) < 0)
                 high = middle - 1;

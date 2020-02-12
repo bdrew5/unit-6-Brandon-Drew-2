@@ -15,10 +15,10 @@ public class Album {
         return a;
     }
     public String getName(){
-        return name;
+            return name;
     }
 
     public String getArtist(){
-        return artist;
+            return artist;
     }
 }

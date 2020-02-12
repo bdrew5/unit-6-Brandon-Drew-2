@@ -50,7 +50,7 @@ public class MusicLibraryClient {
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
 
-        int num = myLibrary.binarySearch("b", "artist");
+        int num = myLibrary.binarySearch("x", "artist");
         System.out.println(num);
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++");
