@@ -27,6 +27,15 @@ public class MyArray2DExplorer {
         System.out.println("\nTest colMax: \nExpecting: [6,6,8,5]\n Actual: " + Arrays.toString(arr));
         arr = exp.allRowSums(array);
         System.out.println("\nTest allRowSums: \nExpecting: [18,9,16]\n Actual: " + Arrays.toString(arr));
+
+        double [] ar = exp.averageCol(array);
+        System.out.println("\nTest averageCol: \nExpecting: [3.3333,3,4.3333333,3.6666]\n Actual: " + Arrays.toString(ar));
+
+         int a = exp.smallEven(array);
+        System.out.println("\nTest averageCol: \nExpecting: [0]\n Actual: " + a);
+
+        a = exp.biggestRow(array);
+        System.out.println("\nTest averageCol: \nExpecting: [0]\n Actual: " + a);
     }
 
     //WRITE YOUR METHODS BELOW
@@ -42,7 +51,7 @@ public class MyArray2DExplorer {
     //returns true if the sum of the numbers the given col is odd.
     public boolean oddColSum(int [][] mat, int column) {
         int x = 0;
-        for (int i = 0; i < mat[0].length - 1; i++){
+        for (int i = 0; i < mat.length; i++){
             x = x + mat[i][column];
         }
         if (x % 2 != 0)
@@ -90,34 +99,46 @@ public class MyArray2DExplorer {
     }
 
    public double[] averageCol(int[][] nums){
-       int a;
-       int[] average = new int[nums[0].length];
+        double a;
+       double[] average = new double[nums[0].length];
        for (int i = 0; i < nums[0].length; i++){
            a = 0;
            for (int x = 0; x < nums.length; x++){
-               a =+ nums[x][i];
+               a = a + nums[x][i];
            }
-           a = a/i;
+           a = a / nums.length;
            average[i] = a;
        }
        return average;
     }
 
-   /* public int smallEven(int[][] matrix){
-
+    public int smallEven(int[][] matrix){
+        int min = matrix[0][0];
+        for (int i = 0; i < matrix.length; i++){
+            for(int x = 0; x < matrix[i].length; x++){
+                if (matrix[i][x] < min && matrix[i][x] % 2 ==0)
+                    min = matrix[i][x];
+            }
+        }
+        return min;
     }
 
     public static int biggestRow(int[][] nums){
-
+        int a;
+        int b = 0;
+        int max = -1;
+        for (int i = 0; i < nums.length; i++) {
+            a = 0;
+            for (int x = 0; x < nums[i].length; x++) {
+                a = a + nums[i][x];
+            }
+            if(a > max){
+                max = a;
+                b = i;
+            }
+        }
+        return b;
     }
-
-
-
-*/
-
-
-
-
 }
 
 
